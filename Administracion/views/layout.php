@@ -8,7 +8,7 @@
 </head>
 <body class="container-fluid" style="padding-left:0;">
     <?php
-    session_start();
+    //session_start();
     //if(!isset($_SESSION["usuario"])) header("Location: login.php");
     ?>
     <div class="row">

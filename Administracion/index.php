@@ -1,3 +1,5 @@
 <?php
-$view = "empleados";
+session_start();
+if(!isset($_SESSION['usuario'])) header("Location: login.php");
+$view = "home";
 require_once "views/layout.php";

@@ -3,6 +3,17 @@ session_start();
 if(isset($_SESSION['usuario'])) header("Location: index.php");
 if(isset($_POST['usuario']) && isset($_POST['contraseña'])){
     require_once "includes/config.php";
+    $sql = "SELECT password FROM acceso INNER JOIN empleados ON acceso.id_empleado = empleados.id WHERE nombre_completo = '".$_POST["usuario"]."' AND password = HashBytes('MD5','".$_POST["contraseña"]."')";
+    $query = sqlsrv_query($conn,$sql);
+    
+    if($query){
+        $_SESSION['usuario'] = sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC);
+        header("Location: index.php");
+    }
+        else{
+            print_r(sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC));
+            //print_r(sqlsrv_errors());
+    }
 }
 ?>
 <!DOCTYPE html>
