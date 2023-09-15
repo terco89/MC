@@ -1,0 +1,53 @@
+.menu {
+    float: left;
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.producto {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.pedido {
+    float: left;
+    width: 50%;
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.items-pedido {
+    list-style: none;
+    padding-left: 0;
+}
+
+.items-pedido li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+/* ... (código anterior) ... */
+h3 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.cantidad {
+    display: flex;
+    align-items: center;
+}
+
+.cantidad button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cantidad-numero {
+    font-size: 18px;
+    margin: 0 10px;
+}
