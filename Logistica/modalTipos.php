@@ -1,4 +1,25 @@
 
+<form action=""><div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">Ingrese un proveedor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombrem" id="txtTipoP">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-dark" onclick="guardar()">Enviar Datos</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
 
 
 <form action="" >
@@ -75,11 +96,11 @@ while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC)) {
             <input type="text" class="form-control" name="nombre" id="txtTipo">
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label" >unidad</label>
+            <label for="message-text" class="col-form-label" >Unidad</label>
             <input type="text" class="form-control" name="unidad" id="unidad">
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label" >Curso</label>
+            <label for="message-text" class="col-form-label" >Proveedores</label>
             <select class="form-select" id="curso1" aria-label="Default select example">
            <?php foreach ($dou1 as $dou2) { ?>
             <option value="<?php echo $dou2['id']; ?>"><?php echo $dou2['proveedor']; ?></option>
@@ -96,5 +117,9 @@ while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC)) {
   </div>
 </div>
 </form>
+
+
+
+
 
 

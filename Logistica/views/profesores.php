@@ -1,4 +1,6 @@
 
+
+
 <div class="container">
        
     <div class="container">
@@ -8,15 +10,17 @@
         <div class="row">
             <div id="tabla"></div>
         </div>
+        
     </div>
 
     <div id="modal"></div>
+    
+   
 
 <script type="text/javascript">
     $(document).ready(function(){
 $('#tabla').load('tablaTipos.php')
 $('#modal').load('modalTipos.php')
-$('#filtro').load('listaTipos.php')
     });
 
 </script>
@@ -39,6 +43,27 @@ $('#filtro').load('listaTipos.php')
 	});
 	}
 
+    function guardar(){
+var tipo=$('#txtTipoP').val();
+
+var sql="INSERT INTO Proveedores(proveedor) VALUES('"+tipo+"')";
+var cadena="sql="+sql+"&operacion=1";
+$.ajax({
+type:"POST",
+url:"registrosTipo.php",
+data:cadena,
+success:function(r){
+    $('#tabla').load('views/profesores.php');
+    alertify.success("Se añadio correctamente");
+},
+error:function(r){ 
+alertify.error("Error: "+r);    
+}
+
+});
+
+
+}
     function guardarTipo(){
 var tipo=$('#txtTipo').val();
 var unidad=$('#unidad').val();
@@ -120,6 +145,24 @@ alertify.error("Error: "+r);
 });
 
         }
+        function eliminarproveedor(id){
+            id=$('#proveedor').val();
+var sql="DELETE FROM Proveedores WHERE id="+id;
+var cadena="sql="+sql+"&operacion=3";
+$.ajax({
+type:"POST",
+url:"registrosTipo.php",
+data:cadena,
+success:function(r){
+    $('#tabla').load('tablaTipos.php');
+    alertify.success("El tipo a sido eliminado");
+},
+error:function(r){ 
+alertify.error("Error: "+r);    
+}
 
+});
+
+        }
 
 </script>
