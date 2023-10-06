@@ -1,3 +1,4 @@
+<p><?php echo "Ventas de este mes: ". count($ventas); ?></p>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -18,7 +19,7 @@
     <?php } ?>
   </tbody>
 </table>
-<div id="tep1" style="display:none;">
+<div id="tep1" style="display:block;">
     <h1 style="text-align:center;">Ventas del mes</h1>
     <canvas id="grafica" ></canvas>
 </div>
@@ -26,10 +27,12 @@
 #grafica{
     max-width: 900px;
     max-height: 480px;
-    margin-left: 150px;
+    margin-left: 20%;
 }
 </style>
-<button onclick="generarVentas()">Generar informe de ventas</button>
+<br>
+<br>
+<button onclick="generarVentas()" <?php if(count($ventas) == 0){echo "disabled";} ?> >Guardar informe de ventas</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
