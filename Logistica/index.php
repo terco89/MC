@@ -1,3 +1,3 @@
 <?php
-$section = "views/home.php";
+$section = "views/profesores";
 require_once "views/layout.php";

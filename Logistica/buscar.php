@@ -15,11 +15,11 @@ else{
 ?>
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Agregar Producto
+</button><a style="margin-left: 30px;" class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Proveedores</a>
+
+<button style="margin-left: 30px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal12">
+Eliminar Proveedores
 </button>
-
-
-    
-
 
 
 
@@ -69,10 +69,54 @@ while ($dou = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC)) {
 }
 ?>
 
+
+    
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal12" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div  class="modal-content modal-xl">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Proveedores</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>   <div class="modal-footer">
+    
+
+      </div>
+      <div  class="modal-body">
+      <?php
+            require_once "include/config.php";
+          $sql= "SELECT * FROM Proveedores ORDER BY proveedor ASC";
+$res= sqlsrv_query($conn , $sql);
+if (!$res) {
+  die("Error de conexión: " . sqlsrv_errors());
+}
+$dou = array();
+
+while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC)) {
+  $dou1[] = $row;
+}
+
+
+  ?>
+    
+    <div class="form-group">
+            <label for="message-text" class="col-form-label" >Proveedores</label>
+            <select id="proveedor" class="form-select" aria-label="Default select example">
+  <option selected>Elimine</option>
+  <?php foreach ($dou1 as $dou2) { ?>
+            <option value="<?php echo $dou2['id']; ?>"><?php echo $dou2['proveedor']; ?></option>
+            <?php } ?>
+</select>
+          </div>
+          <button type="button" class="btn btn-primary " onclick="eliminarproveedor('2')">Eliminar</button>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 </tbody>
-
-
-
 
 
 
