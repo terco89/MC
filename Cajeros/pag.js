@@ -1,4 +1,3 @@
-// todo hecho por colaboracion gabriel-aaron (marcos  no hizo nada solo copio lo que hiz el meimbro jorge ochoa tipico de marcos no hacfg)
 const vaciarPedidoButton = document.querySelector('.vaciar-pedido');
 const agregarBotones = document.querySelectorAll('.agregar-al-pedido');
 const itemsPedido = document.querySelector('.items-pedido');
@@ -45,12 +44,22 @@ agregarBotones.forEach(agregarBoton => {
   
 });
 
+function enviar_formulario() {
+    var element = document.getElementById("nose");
+    for(var i = 0; i < productosCantidad.length; i++){
+        element.value += productosNombre[i]+":"+productosCantidad[i]
+        if(i != productosCantidad.length-1){
+            element.value += "/&"
+        }
+    }
+    
+    document.getElementById("mienvio").submit();
+ }
+
 vaciarPedidoButton.addEventListener('click', () => {
    productosCantidad=[];
 productosNombre=[];
     itemsPedido.innerHTML = ''; // Vaciar el pedido al hacer clic en el botón "Vaciar Pedido"
 });
-
-
 
 

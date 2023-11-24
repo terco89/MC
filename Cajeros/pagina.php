@@ -67,7 +67,10 @@ sqlsrv_free_stmt($result);
         <h2>Tu Pedido</h2>
         
         <ul class="items-pedido"></ul>
-        <botton class="guardar">guardar</botton>
+        <form action="controlador.php" method="POST" id="mienvio">
+            <input type="text" hidden id="nose" name="nose">
+            <button class="guardar" onclick="enviar_formulario()">guardar</button>
+        </form>
         <button class="vaciar-pedido">Vaciar Pedido</button>
     </div>
     <script src="pag.js"></script>
