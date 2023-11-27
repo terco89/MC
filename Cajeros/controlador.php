@@ -13,26 +13,20 @@ if($conn === false) {
 } else {
     echo "Conexión exitosa";
 }
-
-
-$query = "SELECT nombre, descripcion FROM Menus";
-$result = sqlsrv_query($conn, $query);
-
-if($result === false) {
-    die(print_r(sqlsrv_errors(), true));
-}
+if(isset($_POST["nose"])){
 $elementos = explode("/&",$_POST["nose"]);
 $nombres = array();
 $cantidades = array();
 $precio = 0;
 $detalle = "";
-for($i = 0; $i < $elementos;$i++){
+for($i = 0; $i < count($elementos);$i++){
     $nombres[] = explode(":",$elementos[$i])[0];
     $cantidades[] = explode(":",$elementos[$i])[1];
-    $precio += 7000*$cantidades[count($cantidades)-1];
+    $precio += 7000*intval($cantidades[count($cantidades)-1]);
     $detalle .= $elementos[$i] ." - ";
 }
 
-$sql = "INSERT INTO Pedidos(detalle,precio) VALUES($detalle,$precio)";
+$sql = "INSERT INTO Pedidos(detalle,precio) VALUES('$detalle',$precio)";
 $query = sqlsrv_query($conn,$sql);
 header("Location: pagina.php");
+}
